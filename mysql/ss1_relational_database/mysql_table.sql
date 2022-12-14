@@ -19,6 +19,7 @@ create table teacher(
   age int, 
   country varchar(150)
 );
+
 insert into teacher value(1, 'congnt', 31, 'da nang'), 
 (2, 'chanh', 35, 'hue');
 
