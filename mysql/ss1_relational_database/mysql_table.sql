@@ -1,7 +1,7 @@
 create database student_managerment;
 
 create table class(
-  id int, 
+  id int primary key, 
   name varchar(50)
 );
 
