@@ -149,6 +149,46 @@ values
   ('2', 'House'), 
   ('3', 'Room');
   
+    insert into kieu_thue
+  values
+  ('1', 'year'), 
+  ('2', 'month'), 
+  ('3', 'day'), 
+  ('4', 'hour');
+  
+  insert into dich_vu
+  values
+  (
+    '1', 'Villa Beach Front', '25000', 
+    '1000000', '10', 'vip', 'Có hồ bơi', 
+    500, 4, 'null', '3', '1'
+  ), 
+  (
+    '2', 'House Princess 01', '14000', 
+    '5000000', '7', 'vip', 'Có thêm bếp nướng', 
+    null, 3, 'null', '2', '2'
+  ), 
+  (
+    '3', 'Room Twin 01', '5000', '1000000', 
+    '2', 'normal', 'Có tivi', null, null, 
+    '1 Xe máy, 1 Xe đạp', '4', '3'
+  ), 
+  (
+    '4', 'Villa No Beach Front', '22000', 
+    '9000000', '8', 'normal', 'Có hồ bơi', 
+    300, 3, 'null', '3', '1'
+  ), 
+  (
+    '5', 'House Princess 02', '10000', 
+    '4000000', '5', 'normal', 'Có thêm bếp nướng', 
+    null, 2, 'null', '3', '2'
+  ), 
+  (
+    '6', 'Room Twin 02', '3000', '900000', 
+    '2', 'normal', 'Có tivi', null, null, 
+    '1 Xe máy', '4', '3'
+  );
+  
   insert into hop_dong
   values
    (
@@ -200,39 +240,6 @@ values
     '0', '7', '10', '1'
   );
   
-  insert into dich_vu
-  values
-  (
-    '1', 'Villa Beach Front', '25000', 
-    '1000000', '10', 'vip', 'Có hồ bơi', 
-    500, 4, 'null', '3', '1'
-  ), 
-  (
-    '2', 'House Princess 01', '14000', 
-    '5000000', '7', 'vip', 'Có thêm bếp nướng', 
-    null, 3, 'null', '2', '2'
-  ), 
-  (
-    '3', 'Room Twin 01', '5000', '1000000', 
-    '2', 'normal', 'Có tivi', null, null, 
-    '1 Xe máy, 1 Xe đạp', '4', '3'
-  ), 
-  (
-    '4', 'Villa No Beach Front', '22000', 
-    '9000000', '8', 'normal', 'Có hồ bơi', 
-    300, 3, 'null', '3', '1'
-  ), 
-  (
-    '5', 'House Princess 02', '10000', 
-    '4000000', '5', 'normal', 'Có thêm bếp nướng', 
-    null, 2, 'null', '3', '2'
-  ), 
-  (
-    '6', 'Room Twin 02', '3000', '900000', 
-    '2', 'normal', 'Có tivi', null, null, 
-    '1 Xe máy', '4', '3'
-  );
-  
 insert into dich_vu_di_kem
 values
 (
@@ -270,9 +277,3 @@ values
   ('7', '2', '1', '2'), 
   ('8', '2', '12', '2');
   
-  insert into kieu_thue
-  values
-  ('1', 'year'), 
-  ('2', 'month'), 
-  ('3', 'day'), 
-  ('4', 'hour');

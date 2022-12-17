@@ -66,11 +66,9 @@ from
 -- được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 -- Giá bán của từng loại được tính = odQTY*pPrice)
 select 
-  o_date, 
+ o.o_id,o_date, 
   (p_price * od_qty) as sum 
 from 
   oder_detail od 
   join product p on od.p_id = p.p_id 
   join oder o on od.o_id = o.o_id;
--- chỗ này em chưa làm hiển thị được mã hóa đơn do bị lỗi chưa fix được,
--- thứ 2 lên em sẽ hỏi ạ!
