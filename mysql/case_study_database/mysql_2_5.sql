@@ -3,11 +3,11 @@ use furama_resort_management;
 -- 2.  Hiển thị thông tin của tất cả nhân viên có trong hệ thống
 -- có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 select 
-  * 
+  *
 from 
   nhan_vien 
 where 
-  ho_ten regexp '^H|^T|^K' 
+  SUBSTRING_INDEX(ho_ten, " ", -1) regexp '^H|^T|^K' 
   and char_length(ho_ten) <= 15;
   
 -- 3.  Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi 
@@ -76,13 +76,12 @@ select
   ) as tong_tien 
 from 
   khach_hang k 
-  join loai_khach l on k.ma_loai_khach = l.ma_loai_khach 
-  join hop_dong h on k.ma_khach_hang = h.ma_khach_hang 
+ left join loai_khach l on k.ma_loai_khach = l.ma_loai_khach 
+  left join hop_dong h on k.ma_khach_hang = h.ma_khach_hang 
   join dich_vu d on d.ma_dich_vu = h.ma_dich_vu 
   join hop_dong_chi_tiet ho on ho.ma_hop_dong = h.ma_hop_dong 
   join dich_vu_di_kem di on di.ma_dich_vu_di_kem = ho.ma_dich_vu_di_kem 
 group by 
-  h.ma_hop_dong, 
-  k.ma_khach_hang 
+  h.ma_hop_dong
 order by 
   k.ma_khach_hang;

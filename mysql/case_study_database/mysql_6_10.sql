@@ -35,11 +35,9 @@ from
   dich_vu d 
   join loai_dich_vu l on l.ma_loai_dich_vu = d.ma_loai_dich_vu 
   join hop_dong h on h.ma_dich_vu = d.ma_dich_vu 
-where 
-  h.ngay_lam_hop_dong between '2020-01-01' 
-  and '2020-12-30' 
-  and h.ngay_lam_hop_dong not between '2021-01-01' 
-  and now() 
+where h.ngay_lam_hop_dong not in (select ngay_lam_hop_dong from hop_dong h where  year(h.ngay_lam_hop_dong) = 2021)
+  and h.ngay_lam_hop_dong
+   in (select ngay_lam_hop_dong from hop_dong h where year(h.ngay_lam_hop_dong) =2020 )
 group by 
   d.ma_dich_vu;
   
