@@ -160,6 +160,8 @@
 .header {
     background-color: #AAAAAA;
     padding: 10px;
+    color: red;
+    font-size: 20px;
 }
 
 .content {
@@ -184,6 +186,7 @@ a {
     text-decoration: none;
     margin: 20px;
     justify-content: center;
+    color: black;
 }
 .nav2 {
     position: -webkit-sticky;
