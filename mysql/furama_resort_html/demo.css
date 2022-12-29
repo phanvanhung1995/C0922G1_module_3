@@ -1,0 +1,15 @@
+.center {
+    text-align: center;
+    padding: 20px;
+    font-size: 100%;
+
+}
+a {
+    text-decoration: none;
+}
+.img {
+    background-image: url("https://furamavietnam.com/wp-content/uploads/2018/07/Vietnam_Danang_Furama_Resort_Exterior_Courtyard.jpg");
+}
+* {
+    box-sizing: border-box;
+}
