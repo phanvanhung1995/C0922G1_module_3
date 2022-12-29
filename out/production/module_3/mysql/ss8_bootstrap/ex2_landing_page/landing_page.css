@@ -1,0 +1,46 @@
+
+.content {
+    background-image: url(https://c.s-microsoft.com/en-us/CMSImages/Surface_HP_Holiday_Hero_wave_5_red_1920x1080.jpg?version=1a595eab-fc15-693d-e500-76674b150916);
+    background-size: cover
+}
+
+.text1 {
+    color: white;
+    position: absolute;
+    top: 300px;
+    left: 70px;
+}
+
+.text2 {
+    color: white;
+    position: absolute;
+    top: 450px;
+    left: 70px;
+}
+
+.text3 {
+    color: red;
+    position: absolute;
+    top: 550px;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+.text4 {
+    background-image: url("https://c.s-microsoft.com/en-us/CMSImages/Surface_Home_10Year_V1.png.jpg?version=c25e0efc-b854-0af7-ebb7-27b414ea0efd");
+    background-size: cover;
+}
+
+.text5 {
+    background-image: url("https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_HighlightFeature_Sustainability_V1.jpg?version=35af788a-64eb-a2da-5bc8-ad5d05b7c003");
+    background-size: cover;
+}
+.text6 {
+   background-color: antiquewhite;
+}
+
+
+
