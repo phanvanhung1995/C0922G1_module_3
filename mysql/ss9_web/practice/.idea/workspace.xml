@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b6909c9-8dcd-468c-8877-1755a59985ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../practice_2/src/main/java/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_2/src/main/webapp/Error.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice_2/src/main/webapp/welcome.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ve_hinh_dong_ho_cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.idea/module_3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/module_3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_2_calculator/src/main/java/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_2_calculator/src/main/java/CalculatorServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_2_calculator/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_jsp_jstl/src/main/java/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_jsp_jstl/src/main/java/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_jsp_jstl/src/main/webapp/customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss10_JSP_JSTL/ex_jsp_jstl/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ve_hinh_dong_ho_cat.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/codegym/module_3/mysql/ss9_web/practice_1_web&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/codegym/module_3/mysql/ss9_web/practice&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,16 +70,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.70" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -177,6 +170,8 @@
       <workItem from="1672304552190" duration="2173000" />
       <workItem from="1672307566450" duration="1725000" />
       <workItem from="1672324847316" duration="191000" />
+      <workItem from="1672388655957" duration="22000" />
+      <workItem from="1672388692676" duration="11000" />
     </task>
     <servers />
   </component>
