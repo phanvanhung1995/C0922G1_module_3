@@ -23,7 +23,7 @@
 </div>
 <div class="row center content" >
 
-    <h2 >LIST CUSTOMER</h2>
+    <h2 class="center">LIST CUSTOMER</h2>
 
     <hr>
     <hr>
