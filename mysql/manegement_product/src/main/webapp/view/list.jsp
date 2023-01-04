@@ -6,7 +6,7 @@
   Time: 5:17 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"  language="java" %>
 <html>
 <head>
     <title>Product List</title>
@@ -40,6 +40,8 @@
             <td><a href="/ProductServlet?action=delete&id=${product.id}">delete</a></td>
         </tr>
     </c:forEach>
+
+
 
 </table>
 </body>

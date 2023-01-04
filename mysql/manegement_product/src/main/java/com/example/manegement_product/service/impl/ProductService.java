@@ -20,7 +20,7 @@ public class ProductService implements IProductService {
         productMap.put(6, new Product(6, "Rose", 60,"111", "Newyork"));
     }
     @Override
-    public List<Product> finAll() {
+    public List<Product> findAll() {
         return new ArrayList<>(productMap.values());
     }
 
@@ -43,4 +43,20 @@ public class ProductService implements IProductService {
     public void remove(int id) {
         productMap.remove(id);
     }
+    public List<Product> findByName(String name) {
+        List<Product> products = new ArrayList<>();
+
+
+        if (name == "") {
+            return products;
+        } else {
+            for (Map.Entry<Integer, Product> entry : productMap.entrySet()) {
+                if (entry.getValue().getName().contains(name)) {
+                    products.add(entry.getValue());
+                }
+            }
+        }
+        return products;
+    }
+
 }

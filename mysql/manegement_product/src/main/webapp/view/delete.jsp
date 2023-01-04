@@ -1,4 +1,4 @@
-<jsp:useBean id="product" scope="request" type="javax.xml.stream.util.StreamReaderDelegate"/>
+
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -18,9 +18,9 @@
 </p>
 
 <form method="post">
-  <p> bạn muốn xóa sản phầm : ${product.name}</p>
+  <p> bạn muốn xóa sản phầm : '${requestScope["product"]}'</p>
   <button type="submit">Delete</button>
-  <a href="/ProductServlet"><input type="submit" value="back to product list"></a>
+  <a href="/ProductServlet">back to product list</a>
 </form>
 </body>
 </html>
