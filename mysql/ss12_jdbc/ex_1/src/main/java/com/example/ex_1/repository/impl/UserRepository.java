@@ -21,6 +21,11 @@ public class UserRepository implements IUsersRepository {
     private final String SORT_USER = "select * from users order by name";
     private final String CALL_USER_BY_ID = "call get_user_by_id(?)";
     private final String CALL_INSERT_USER = "call insert_user(?,?,?)";
+    private final String CALL_SELECT_USER = "call selectUser()";
+    private final String CALL_UPDATE_USER = "call updateUser()";
+    private final String CALL_DELETE_USER = "call deleteUser()";
+
+
 
     @Override
     public void insertUser(User user) {
@@ -195,5 +200,58 @@ public class UserRepository implements IUsersRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<User> getSelectUser() {
+        List<User> lists = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(CALL_SELECT_USER);
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                User user = new User(id,name,email,country);
+                lists.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lists;
+    }
+
+    @Override
+    public boolean updateUserStore(User user) {
+        boolean rowUpdate;
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(CALL_UPDATE_USER);
+            callableStatement.setString(1, user.getName());
+            callableStatement.setString(2, user.getEmail());
+            callableStatement.setString(3, user.getCountry());
+            callableStatement.setInt(4, user.getId());
+            rowUpdate = callableStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowUpdate;
+    }
+
+    @Override
+    public boolean deleteUserStore(int id) {
+        boolean rowDelete;
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(CALL_DELETE_USER);
+            callableStatement.setInt(1, id);
+            rowDelete = callableStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowDelete;
     }
 }

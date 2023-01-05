@@ -53,4 +53,19 @@ public class UserService implements IUserService {
     public void insertUserStore(User user) {
         userRepository.insertUserStore(user);
     }
+
+    @Override
+    public List<User> getSelectUser() {
+        return userRepository.getSelectUser();
+    }
+
+    @Override
+    public boolean updateUserStore(User user) {
+        return userRepository.updateUserStore(user);
+    }
+
+    @Override
+    public boolean deleteUserStore(int id) {
+        return userRepository.deleteUserStore(id);
+    }
 }

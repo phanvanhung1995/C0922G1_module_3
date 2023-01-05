@@ -22,4 +22,8 @@ public interface IUsersRepository {
 
     public User getUserById(int id);
     public void insertUserStore(User user);
+    List<User> getSelectUser();
+
+    boolean updateUserStore(User user);
+    boolean deleteUserStore(int id);
 }

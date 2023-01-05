@@ -93,7 +93,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) {
-        List<User> userList = userService.selectAllUser();
+        List<User> userList = userService.getSelectUser();
         request.setAttribute("userList",userList);
 
         try {
@@ -151,7 +151,7 @@ public class UserServlet extends HttpServlet {
         } else {
             request.setAttribute("id",id);
             request.setAttribute("user",user);
-            userService.deleteUser(id);
+            userService.deleteUserStore(id);
             try {
                 request.getRequestDispatcher("/view/delete.jsp").forward(request,response);
             } catch (ServletException | IOException e) {
@@ -175,7 +175,7 @@ public class UserServlet extends HttpServlet {
             user.setEmail(email);
             user.setCountry(country);
 
-            userService.updateUser(user);
+            userService.updateUserStore(user);
             try {
                 request.getRequestDispatcher("/view/edit.jsp").forward(request,response);
             } catch (ServletException | IOException e) {
