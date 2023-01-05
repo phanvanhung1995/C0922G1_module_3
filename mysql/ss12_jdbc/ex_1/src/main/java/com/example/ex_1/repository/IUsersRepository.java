@@ -16,4 +16,10 @@ public interface IUsersRepository {
     public boolean deleteUser(int id);
 
     public boolean updateUser(User user);
+    public List<User> selectUser(String country);
+
+    public List<User> sortByName();
+
+    public User getUserById(int id);
+    public void insertUserStore(User user);
 }

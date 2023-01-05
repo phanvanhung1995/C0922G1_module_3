@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", value = "/UserServlet")
@@ -30,9 +31,23 @@ public class UserServlet extends HttpServlet {
             case "delete":
                 showDeleteUser(request,response);
                 break;
+            case "sortByName" :
+                sortByName(request,response);
             default:
                 listUser(request, response);
                 break;
+        }
+    }
+
+    private void searchByCountryForm(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("country");
+        List<User> userList = userService.selectUser(country);
+        request.setAttribute("users",userList);
+        request.setAttribute("country",country);
+        try {
+            request.getRequestDispatcher("/view/search.jsp").forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -55,7 +70,7 @@ public class UserServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.selectUser(id);
+        User user = userService.getUserById(id);
 
         if (user == null) {
             request.getRequestDispatcher("/err-404.jsp");
@@ -105,8 +120,25 @@ public class UserServlet extends HttpServlet {
             case "delete":
                 deleteUser(request,response);
                 break;
+            case "searchByCountry":
+                searchByCountryForm(request,response);
+            case "sortByName" :
+                sortByName(request,response);
             default:
                 break;
+        }
+    }
+
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> userList = userService.sortByName();
+        request.setAttribute("userList",userList);
+
+        try {
+            request.getRequestDispatcher("/view/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -158,7 +190,7 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
         int id = Integer.parseInt(request.getParameter("id"));
         User user = new User(id,name,email,country);
-        userService.insertUser(user);
+        userService.insertUserStore(user);
         try {
             request.getRequestDispatcher("/view/create.jsp").forward(request,response);
         } catch (ServletException | IOException e) {

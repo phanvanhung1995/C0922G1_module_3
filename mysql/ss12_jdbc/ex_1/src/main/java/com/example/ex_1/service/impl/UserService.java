@@ -33,4 +33,24 @@ public class UserService implements IUserService {
     public boolean updateUser(User user) {
         return userRepository.updateUser(user);
     }
+
+    @Override
+    public List<User> selectUser(String country) {
+        return userRepository.selectUser(country);
+    }
+
+    @Override
+    public List<User> sortByName() {
+        return userRepository.sortByName();
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return userRepository.getUserById(id);
+    }
+
+    @Override
+    public void insertUserStore(User user) {
+        userRepository.insertUserStore(user);
+    }
 }
