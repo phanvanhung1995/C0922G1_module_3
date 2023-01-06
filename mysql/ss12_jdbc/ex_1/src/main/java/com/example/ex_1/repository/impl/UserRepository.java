@@ -24,6 +24,7 @@ public class UserRepository implements IUsersRepository {
     private final String CALL_SELECT_USER = "call selectUser()";
     private final String CALL_UPDATE_USER = "call updateUser(?,?,?,?)";
     private final String CALL_DELETE_USER = "call deleteUser(?)";
+    private final String INSERT_USER = "call insertUser(?,?,?)";
 
 
 
@@ -252,5 +253,54 @@ public class UserRepository implements IUsersRepository {
             throw new RuntimeException(e);
         }
         return rowDelete;
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permisions) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement1 = null;
+
+        ResultSet resultSet = null;
+        try {
+            connection = BaseRepository.getConnectDB();
+
+            connection.setAutoCommit(false);
+
+            preparedStatement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
+
+            preparedStatement.setString(1, user.getName());
+
+            preparedStatement.setString(2, user.getEmail());
+
+            preparedStatement.setString(3, user.getCountry());
+
+            int rowAffected = preparedStatement.executeUpdate();
+            resultSet = preparedStatement.getGeneratedKeys();
+
+            int userId = 0;
+            if (resultSet.next())
+
+                userId = resultSet.getInt(1);
+
+            if (rowAffected == 1) {
+                String sqlPivot = "INSERT INTO user_permision(user_id,permision_id) " + "VALUES(?,?)";
+                preparedStatement1 = connection.prepareStatement(sqlPivot);
+
+                for (int permisionId : permisions) {
+
+                    preparedStatement1.setInt(1, userId);
+
+                    preparedStatement1.setInt(2, permisionId);
+
+                    preparedStatement1.executeUpdate();
+                }
+                connection.commit();
+            } else {
+                connection.rollback();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

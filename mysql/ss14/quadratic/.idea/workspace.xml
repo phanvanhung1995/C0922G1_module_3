@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da1debcb-cc87-4a1f-8aa6-3bcd31c4b980" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../java console app/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/repository/IUsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/repository/IUsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/repository/impl/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/repository/impl/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss12_jdbc/ex_1/src/main/java/com/example/ex_1/service/impl/UserService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JwT6yYrm71QW3jmHVdAZJxDFmY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/codegym/module_3/mysql/ss14/quadratic",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Quadratic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Quadratic" />
+      <module name="quadratic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Quadratic" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da1debcb-cc87-4a1f-8aa6-3bcd31c4b980" name="Changes" comment="" />
+      <created>1672987976788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672987976788</updated>
+      <workItem from="1672987978044" duration="632000" />
+      <workItem from="1672992816487" duration="164000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

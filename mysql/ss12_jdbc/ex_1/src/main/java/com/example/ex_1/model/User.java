@@ -16,6 +16,9 @@ public class User {
         this.country = country;
     }
 
+    public User(String quan, String s, String vn) {
+    }
+
     public int getId() {
         return id;
     }

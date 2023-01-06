@@ -21,4 +21,5 @@ public interface IUserService {
     List<User> getSelectUser();
     boolean updateUserStore(User user);
     boolean deleteUserStore(int id);
+    void addUserTransaction(User user, int[] permisions);
 }

@@ -26,4 +26,5 @@ public interface IUsersRepository {
 
     boolean updateUserStore(User user);
     boolean deleteUserStore(int id);
+    void addUserTransaction(User user, int[] permisions);
 }
