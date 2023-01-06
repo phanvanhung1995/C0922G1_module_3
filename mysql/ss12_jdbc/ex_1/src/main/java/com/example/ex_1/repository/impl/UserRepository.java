@@ -20,10 +20,10 @@ public class UserRepository implements IUsersRepository {
     private final String UPDATE_USER = "update users set name =?,email=?,country= ?where id=?";
     private final String SORT_USER = "select * from users order by name";
     private final String CALL_USER_BY_ID = "call get_user_by_id(?)";
-    private final String CALL_INSERT_USER = "call insert_user(?,?,?)";
+    private final String CALL_INSERT_USER = "call insert_user(?,?,?,?)";
     private final String CALL_SELECT_USER = "call selectUser()";
-    private final String CALL_UPDATE_USER = "call updateUser()";
-    private final String CALL_DELETE_USER = "call deleteUser()";
+    private final String CALL_UPDATE_USER = "call updateUser(?,?,?,?)";
+    private final String CALL_DELETE_USER = "call deleteUser(?)";
 
 
 
@@ -192,10 +192,10 @@ public class UserRepository implements IUsersRepository {
 
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_INSERT_USER);
-            callableStatement.setString(1, "name");
-            callableStatement.setString(2, "email");
-            callableStatement.setString(3, "country");
-
+            callableStatement.setInt(1, user.getId());
+            callableStatement.setString(2, user.getName());
+            callableStatement.setString(3, user.getEmail());
+            callableStatement.setString(4, user.getCountry());
            callableStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -226,19 +226,18 @@ public class UserRepository implements IUsersRepository {
 
     @Override
     public boolean updateUserStore(User user) {
-        boolean rowUpdate;
         Connection connection = BaseRepository.getConnectDB();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_UPDATE_USER);
-            callableStatement.setString(1, user.getName());
-            callableStatement.setString(2, user.getEmail());
-            callableStatement.setString(3, user.getCountry());
-            callableStatement.setInt(4, user.getId());
-            rowUpdate = callableStatement.executeUpdate() > 0;
+            callableStatement.setInt(1, user.getId());
+            callableStatement.setString(2, user.getName());
+            callableStatement.setString(3, user.getEmail());
+            callableStatement.setString(4, user.getCountry());
+            return callableStatement.executeUpdate() > 0;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+          e.printStackTrace();
         }
-        return rowUpdate;
+        return false;
     }
 
     @Override

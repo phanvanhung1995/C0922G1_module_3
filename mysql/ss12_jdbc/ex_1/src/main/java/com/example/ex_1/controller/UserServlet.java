@@ -23,16 +23,16 @@ public class UserServlet extends HttpServlet {
 
         switch (action) {
             case "create":
-                showCreateForm(request,response);
+                showCreateForm(request, response);
                 break;
             case "edit":
-                showEditForm(request,response);
+                showEditForm(request, response);
                 break;
             case "delete":
-                showDeleteUser(request,response);
+                showDeleteUser(request, response);
                 break;
-            case "sortByName" :
-                sortByName(request,response);
+            case "sortByName":
+                sortByName(request, response);
             default:
                 listUser(request, response);
                 break;
@@ -42,10 +42,10 @@ public class UserServlet extends HttpServlet {
     private void searchByCountryForm(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
         List<User> userList = userService.selectUser(country);
-        request.setAttribute("users",userList);
-        request.setAttribute("country",country);
+        request.setAttribute("users", userList);
+        request.setAttribute("country", country);
         try {
-            request.getRequestDispatcher("/view/search.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/search.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -58,10 +58,10 @@ public class UserServlet extends HttpServlet {
         if (user == null) {
             request.getRequestDispatcher("/err-404.jsp");
         } else {
-            request.setAttribute("id",id);
-            request.setAttribute("user",user);
+            request.setAttribute("id", id);
+            request.setAttribute("user", user);
             try {
-                request.getRequestDispatcher("/view/delete.jsp").forward(request,response);
+                request.getRequestDispatcher("/view/delete.jsp").forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -71,12 +71,13 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.getUserById(id);
+        request.setAttribute("user", user);
 
         if (user == null) {
             request.getRequestDispatcher("/err-404.jsp");
         } else {
             try {
-                request.getRequestDispatcher("/view/edit.jsp").forward(request,response);
+                request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -85,7 +86,7 @@ public class UserServlet extends HttpServlet {
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.getRequestDispatcher("view/create.jsp").forward(request,response);
+            request.getRequestDispatcher("view/create.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -94,10 +95,10 @@ public class UserServlet extends HttpServlet {
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) {
         List<User> userList = userService.getSelectUser();
-        request.setAttribute("userList",userList);
+        request.setAttribute("userList", userList);
 
         try {
-            request.getRequestDispatcher("/view/list.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/list.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -112,18 +113,18 @@ public class UserServlet extends HttpServlet {
 
         switch (action) {
             case "create":
-                createUser(request,response);
+                createUser(request, response);
                 break;
             case "edit":
-                editUser(request,response);
+                editUser(request, response);
                 break;
             case "delete":
-                deleteUser(request,response);
+                deleteUser(request, response);
                 break;
             case "searchByCountry":
-                searchByCountryForm(request,response);
-            case "sortByName" :
-                sortByName(request,response);
+                searchByCountryForm(request, response);
+            case "sortByName":
+                sortByName(request, response);
             default:
                 break;
         }
@@ -131,10 +132,10 @@ public class UserServlet extends HttpServlet {
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
         List<User> userList = userService.sortByName();
-        request.setAttribute("userList",userList);
+        request.setAttribute("userList", userList);
 
         try {
-            request.getRequestDispatcher("/view/list.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/list.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -149,11 +150,11 @@ public class UserServlet extends HttpServlet {
         if (user == null) {
             request.getRequestDispatcher("/err-404.jsp");
         } else {
-            request.setAttribute("id",id);
-            request.setAttribute("user",user);
+            request.setAttribute("id", id);
+            request.setAttribute("user", user);
             userService.deleteUserStore(id);
             try {
-                request.getRequestDispatcher("/view/delete.jsp").forward(request,response);
+                request.getRequestDispatcher("/view/delete.jsp").forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -162,25 +163,18 @@ public class UserServlet extends HttpServlet {
     }
 
     private void editUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String country =request.getParameter("country");
-        int id = Integer.parseInt(request.getParameter("id"));
+        String country = request.getParameter("country");
 
-        User user = userService.selectUser(id);
-        if (user == null) {
-            request.getRequestDispatcher("/err-404.jsp");
-        } else {
-            user.setName(name);
-            user.setEmail(email);
-            user.setCountry(country);
 
-            userService.updateUserStore(user);
-            try {
-                request.getRequestDispatcher("/view/edit.jsp").forward(request,response);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
+        User user = new User(id,name,email,country);
+        userService.updateUserStore(user);
+        try {
+            request.getRequestDispatcher("/view/edit.jsp").forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -189,10 +183,10 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = new User(id,name,email,country);
+        User user = new User(id, name, email, country);
         userService.insertUserStore(user);
         try {
-            request.getRequestDispatcher("/view/create.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/create.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }

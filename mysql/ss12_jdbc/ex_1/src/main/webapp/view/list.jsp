@@ -40,7 +40,7 @@
 
 <table class="table table-striped">
     <tr>
-        <th>stt</th>
+        <th>id</th>
         <th>
             <form method="post" action="/UserServlet?action=sortByName">
                 <a href="/UserServlet?action=sortByName" style="color: black;text-decoration: none">Name</a>
@@ -53,12 +53,12 @@
     </tr>
     <c:forEach var="user" items="${userList}" varStatus="userStatust">
         <tr>
-            <td>${userStatust.count}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.country}</td>
-            <td><a href="/UserServlet?action=edit&id=${userStatust.count}">edit</a></td>
-            <td><a href="/UserServlet?action=delete&id=${userStatust.count}">delete</a></td>
+            <td>${user.getId()}</td>
+            <td>${user.getName()}</td>
+            <td>${user.getEmail()}</td>
+            <td>${user.getCountry()}</td>
+            <td><a href="/UserServlet?action=edit&id=${user.getId()}">edit</a></td>
+            <td><a href="/UserServlet?action=delete&id=${user.getId()}">delete</a></td>
         </tr>
     </c:forEach>
 

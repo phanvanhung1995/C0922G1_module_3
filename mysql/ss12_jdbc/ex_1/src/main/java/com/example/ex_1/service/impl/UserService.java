@@ -31,7 +31,7 @@ public class UserService implements IUserService {
 
     @Override
     public boolean updateUser(User user) {
-        return userRepository.updateUser(user);
+        return userRepository.updateUserStore(user);
     }
 
     @Override
