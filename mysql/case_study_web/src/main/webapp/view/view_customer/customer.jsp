@@ -12,9 +12,9 @@
     <title>Customer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="furama.css" rel="stylesheet">
+    <link href="../viewALL/furama.css" rel="stylesheet">
 </head>
-<body>
+<body >
 <div class="row">
     <c:import url="../viewALL/header.jsp"></c:import>
 </div>
@@ -23,9 +23,8 @@
 </div>
 <div class="row center content" >
 
-    <h2 class="center">LIST CUSTOMER</h2>
+    <h2 class="center" style="color: red;font-size: 200%">LIST CUSTOMER</h2>
 
-    <hr>
     <hr>
     <table class="table table-dark table-striped">
         <tr style="text-align: center">
