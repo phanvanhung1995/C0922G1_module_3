@@ -21,3 +21,18 @@ a {
 body {
     margin: 0px 12px;
 }
+.background {
+    color: red;
+    font-size: 200%;
+    background-color: aquamarine;;
+    margin: 0px
+}
+.nav2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+row {
+    display: flex;
+    flex-wrap: wrap;
+}

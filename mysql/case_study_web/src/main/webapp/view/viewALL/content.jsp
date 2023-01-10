@@ -17,7 +17,8 @@
         <h1>item two</h1>
         <h1>item three</h1>
     </div>
-    <div class="col-lg-9 img">
+    <div class="col-lg-9 img"
+    style="height: 1000px">
         body
     </div>
 </div>

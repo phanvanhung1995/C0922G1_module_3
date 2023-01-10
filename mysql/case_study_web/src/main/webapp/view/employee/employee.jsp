@@ -12,104 +12,98 @@
     <title>Customer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="../viewALL/furama.css" rel="stylesheet">
+    <link href="view/viewALL/furama.css" rel="stylesheet">
+    <style>
+        .background {
+            color: red;
+            font-size: 200%;
+            background-color: aquamarine;;
+            margin: 0px;
+        }
+
+        .center {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-<div class="row">
+<div class="row ">
     <c:import url="../viewALL/header.jsp"></c:import>
 </div>
-<div class="row">
+<div class="row nav2">
     <c:import url="../viewALL/navbar.jsp"></c:import>
 </div>
-<div class="row center content" >
+<div class="row">
 
-    <h2>LIST EMPLOYEE</h2>
+    <h2 class="center background">LIST EMPLOYEE</h2>
 
     <hr>
+    <form>
+        <button style="float: left" type="submit" class="btn btn-primary btn-lg">Create New Customer</button>
+    </form>
     <hr>
-    <table class="table table-dark table-striped">
+    <table id="employee" class="table table-dark table-striped">
+        <thead>
         <tr style="text-align: center">
-            <th>STT</th>
+            <th>ID</th>
             <th>NAME</th>
             <th>DATE OF BIRTH</th>
             <th> ID CARD</th>
+            <th> SALARY</th>
             <th> PHONE NUMBER</th>
             <th>EMAIL</th>
+            <th>ADDRESS</th>
             <th>EDUCATION DEGREE ID</th>
             <th>POSITION ID</th>
-            <th>SALARY</th>
+            <th>DIVISION_ID</th>
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
-        <tr style="text-align: center">
-            <td>1</td>
-            <td>Phan Văn Hung</td>
-            <td>17/07/1995</td>
-            <td>187541711</td>
-            <td>0921093190</td>
-            <td>phanvanhung@gmail.com</td>
-            <td>Đại học</td>
-            <td>Giám đốc</td>
-            <td>50000000</td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal2">
-                    Edit
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                    delete
-                </button>
-            </td>
-        </tr>
-        <tr style="text-align: center">
-            <td>2</td>
-            <td>Nguyễn Ngọc Hậu</td>
-            <td>17/07/1995</td>
-            <td>187541711</td>
-            <td>0921093190</td>
-            <td>phanvanhung@gmail.com</td>
-            <td>cấp 3</td>
-            <td>quản lý</td>
-            <td>20000000</td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal2">
-                    Edit
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                    delete
-                </button>
-            </td>
-        </tr>
-        <tr style="text-align: center">
-            <td>3</td>
-            <td>Nguyễn Ngọc Vũ</td>
-            <td>17/07/1995</td>
-            <td>187541711</td>
-            <td>0921093190</td>
-            <td>phanvanhung@gmail.com</td>
-            <td>đại học</td>
-            <td>nhân viên</td>
-            <td> 10000000</td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal2">
-                    Edit
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                    delete
-                </button>
-            </td>
-        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="employee" items="${employeeList}">
+            <tr style="text-align: center">
+                <td>${employee.getId()}</td>
+                <td>${employee.getName()}</td>
+                <td>${employee.getDateOfBirth()}</td>
+                <td>${employee.getIdCard()}</td>
+                <td>${employee.getSalary()}</td>
+                <td>${employee.getPhoneNumber()}</td>
+                <td>${employee.getEmail()}</td>
+                <td>${employee.getAddress()}</td>
+                <c:forEach var="educationDegreeList" items="${educationDegreeList}">
+                    <c:if test="${employee.getEducationDegreeId() == educationDegreeList.getId()}">
+                        <td>${educationDegreeList.getName()}</td>
+                    </c:if>
+                </c:forEach>
+
+                <c:forEach var="positionList" items="${positionList}">
+                    <c:if test="${employee.getPositionId() == positionList.getId()}">
+                        <td>${positionList.getName()}</td>
+                    </c:if>
+                </c:forEach>
+
+                <c:forEach var="divisionList" items="${divisionList}">
+                    <c:if test="${employee.getDivisionId() == divisionList.getId()}">
+                        <td>${divisionList.getName()}</td>
+                    </c:if>
+                </c:forEach>
+                <td>
+                    <button type="submit" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2">
+                        <a href="/EmployeeServlet?action=edit&id=${employee.getId()}">edit</a>
+                    </button>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        <a href="/EmployeeServlet?action=delete&id=${employee.getId()}">delete</a>
+                    </button>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
     </table>
 
     <!-- Modal delete -->
@@ -149,7 +143,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="row center footer">
@@ -159,4 +152,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#employee').dataTable({
+            dom: 'lrtip',
+            lengthChange: false,
+            pageLength: 4,
+            bInfo: false,
+            // "pagingType": 'full_numbers',
+        });
+    });
+</script>
 </html>

@@ -1,25 +1,29 @@
 use furama_resort_management ;
 
-insert into vi_tri 
+insert into position 
 values
-('1', 'Quảndich_vudich_vu Lý'), 
-('2', 'Nhân Viên');
+('1', 'Lễ Tân'),
+('2', 'Phục Vụ'),
+('3', 'chuyên viên'),
+('4', 'giám sát'),
+('5', 'quản lý'),
+('6', 'giám đốc');
 
-insert into trinh_do
+insert into education_degree
 values
  ('1', 'Trung Cấp'), 
   ('2', 'Cao Đẳng'), 
   ('3', 'Đại Học'), 
   ('4', 'Sau Đại Học');
   
-  insert into bo_phan
+  insert into division
   values
   ('1', 'Sale-Marketing'), 
   ('2', 'Hành chính'), 
   ('3', 'Phục vụ'), 
   ('4', 'Quản lý');
   
-  insert into nhan_vien
+  insert into employee
   values 
   (
     '1', 'Nguyễn Văn An', '1970-11-07', 
@@ -82,7 +86,7 @@ values
     '2', '3', '2'
   );
   
-   insert into loai_khach( ma_loai_khach,ten_loai_khach)
+   insert into customer_type
   values 
    (1, 'Diamond'), 
   (2, 'Platinium'), 
@@ -90,7 +94,7 @@ values
   (4, 'Silver'), 
   (5, 'Member');
 
-insert into khach_hang 
+insert into customer()
 values 
 (
     '1','5', 'Nguyễn Thị Hào', '1970-11-07', 
@@ -143,20 +147,20 @@ values
     '22 Ngô Quyền, Đà Nẵng'
   );
   
-  insert into loai_dich_vu
+  insert into facility_type
   values
   ('1', 'Villa'), 
   ('2', 'House'), 
   ('3', 'Room');
   
-    insert into kieu_thue
+    insert into rent_type
   values
   ('1', 'year'), 
   ('2', 'month'), 
   ('3', 'day'), 
   ('4', 'hour');
   
-  insert into dich_vu
+  insert into facility
   values
   (
     '1', 'Villa Beach Front', '25000', 
@@ -189,7 +193,7 @@ values
     '1 Xe máy', '4', '3'
   );
   
-  insert into hop_dong
+  insert into contract
   values
    (
     '1', '2020-12-08', '2020-12-08', '0', 
@@ -240,7 +244,7 @@ values
     '0', '7', '10', '1'
   );
   
-insert into dich_vu_di_kem
+insert into attach_facility
 values
 (
     '1', 'Karaoke', '10000', 'giờ', 'tiện nghi, hiện tại'
@@ -266,7 +270,7 @@ values
     'suất', 'đầy đủ đồ ăn, tráng miệng'
   );
   
-  insert into hop_dong_chi_tiet
+  insert into contract_detail
   values
   ('1', '5', '2', '4'), 
   ('2', '8', '2', '5'), 

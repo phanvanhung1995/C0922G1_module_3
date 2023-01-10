@@ -33,7 +33,6 @@ public class UserServlet extends HttpServlet {
                 break;
             case "sortByName":
                 sortByName(request, response);
-
             case "permision":
                 addUserPermision(request, response);
                 break;

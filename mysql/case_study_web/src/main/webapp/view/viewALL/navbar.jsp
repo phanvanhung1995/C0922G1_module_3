@@ -9,11 +9,17 @@
 <html>
 <head>
     <title>Navbar</title>
+  <style>
+    .nav2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }</style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg text-bg-success">
+<nav class="navbar navbar-expand-lg text-bg-success  ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="http://localhost:8080/#">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +28,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Employee</a>
+          <a class="nav-link active" aria-current="page" href="/EmployeeServlet">Employee</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Customer</a>
+          <a class="nav-link" href="/CustomerServlet">Customer</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
